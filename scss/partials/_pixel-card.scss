@@ -1,0 +1,190 @@
+/* scss/partials/_pixel-card.scss */
+
+.pixel-card {
+  font-family: "Inter", sans-serif;
+/* Fuente Pixelada */
+    background-color: #323b4c; /* Fondo Hueso */
+    border: 2px solid #a3a7af; /* Borde Rosa Fuerte */
+    border-radius:18px;
+    padding: 20px;
+    color: #a3a7af;
+    width: 100%;
+    max-width: 60%;
+    margin: 0 auto;
+    text-transform: uppercase;
+    
+    &__header {
+        text-align: center;
+        margin-bottom: 10px;
+        border-bottom: 2px solid #a3a7af;
+    }
+
+    &__name {
+        font-size: 4.8rem;
+        line-height: 1.6;
+        margin: 0;
+        color: $uvaBlue;
+    }
+
+
+    &__label-top,
+    &__label-bottom {
+        color: $uvaBlue; /* Color Arena para contraste */
+        text-align: center;
+        padding: 6px 0;
+        font-size: 1.8rem;
+        line-height: 1.3;
+        letter-spacing: 1px;
+    }
+
+    &__main-img {
+        height: auto;
+        display: block;
+        background-color: #fff;
+        object-fit: cover;
+        margin: 0 auto;
+    }
+
+    &__info-box {
+        margin: 10px 0px;
+        text-align: center;
+        
+        .pixel-card__text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin: 0;
+          font-family: "Inter", sans-serif;
+/* Mantiene fuente pixelada */
+        }
+
+        .highlight {
+            font-size: 1.6rem;
+            line-height: 1.5;
+            margin: 0;
+          font-family: "Inter", sans-serif;
+          
+/* Mantiene fuente pixelada */
+
+        }
+    }
+
+    &__social {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        padding-top: 5px;
+
+        a {
+            color: $uvaBlue;
+            font-size: 20px;
+            text-decoration: none;
+            transition: transform 0.1s;
+            background-color: #fff;
+            border: 2px solid $uvaBlue;
+            border-radius: 5px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 4px 4px 0 rgba(0,0,0,0.1);
+
+            &:hover {
+                transform: translate(2px, 2px);
+                box-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+                background-color: #e4c388;
+            }
+        }
+    }
+}
+
+
+
+/* --- FLIP CARD EFFECT (CORREGIDO PARA MÓVIL) --- */
+
+.pixel-card__image-frame {
+    /* Aseguramos que el triángulo no se corte si sale del marco */
+    overflow: visible; 
+    /* El resto de estilos de borde/padding se mantienen... */
+}
+
+.flip-container {
+    perspective: 1000px; /* Profundidad 3D */
+    width: 100%;
+    position: relative;
+    overflow: visible; /* Importante para ver el triángulo */
+    z-index: 5;
+}
+
+.flip-inner {
+    position: relative;
+    width: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    
+    /* SOLUCIÓN MÓVIL: Usamos Grid para superponer las imágenes */
+    display: grid; 
+    grid-template-columns: 1fr;
+    /* Esto hace que frente y dorso ocupen el mismo espacio físico */
+}
+
+.flip-inner.flipped {
+    transform: rotateY(180deg);
+}
+
+.flip-front, .flip-back {
+    /* Ambos ocupan la fila 1, columna 1. Se apilan automáticamente. */
+    grid-area: 1 / 1; 
+    
+    width: 100%;
+    backface-visibility: hidden; /* Oculta la cara de atrás */
+    -webkit-backface-visibility: hidden; /* Soporte Safari Mobile */
+    
+    position: relative; /* Ya no necesitamos absolute para el dorso */
+}
+
+.flip-back {
+    /* El dorso empieza rotado para estar "atrás" */
+    transform: rotateY(180deg);
+}
+
+.pixel-card__main-img {
+    display: block;
+    width: 100%;
+    height: auto; /* La altura se ajusta sola y el contenedor la respeta */
+    object-fit: cover; 
+}
+
+/* --- TRIÁNGULO ESQUINA --- */
+.corner-trigger {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 50px;
+    height: 50px;
+    background-color: $color-primary; /* Rosa Neón */
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+    cursor: pointer;
+    z-index: 20; /* Z-index alto para estar sobre la imagen */
+    pointer-events: all; /* Asegura que reciba clicks en móvil */
+
+    i {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 12px;
+        color: #ffffff;
+        font-weight: bold;
+    }
+
+    &:hover {
+        filter: brightness(1.2);
+    }
+}
+
+.back-trigger {
+    background-color: $color-primary; /* Mismo color rosa */
+    i {
+        color: #e8abff;
+    }
+}

@@ -1,0 +1,92 @@
+/* ~RESET ~ */
+
+*{
+	box-sizing: border-box;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* ~ HTML5 display-role reset for older browsers ~ */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	background-color: #fdf5e6;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* ~ /RESET ~ */
+
+
+/* En scss/partials/_reset.scss */
+
+html {
+    /* Por defecto el navegador usa 16px (100%).
+       Al poner 62.5%, hacemos que 1rem = 10px. 
+       Esto reduce todo el sitio aprox un 37% comparado con el estándar.
+    */
+    font-size: 50%; 
+    
+    /* Si AÚN lo sientes muy grande y quieres simular exactamente el "zoom al 50%",
+       puedes probar bajando a 50% o 55%.
+       font-size: 50%; 
+    */
+    
+    scroll-behavior: smooth; /* (Opcional) Para que el scroll se vea suave */
+}
+
+/* Es buena práctica asegurar que en móviles el texto no quede diminuto.
+   Puedes añadir un media query para restaurar el tamaño en pantallas pequeñas.
+*/
+@media (max-width: 768px) {
+    html {
+        // En móviles quizás quieras que el texto sea un poco más grande
+        // para facilitar la lectura. 
+        font-size: 60%; 
+    }
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%; /* Usar 100% es más seguro que 100vh en móviles */
+  overflow: hidden !important; /* El !important asegura que nada lo sobreescriba */
+  position: fixed; /* Esto ancla la página y bloquea el scroll nativo 100% */
+  top: 0;
+  left: 0;
+}

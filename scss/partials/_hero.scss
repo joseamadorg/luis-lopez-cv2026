@@ -1,0 +1,201 @@
+/* ~ HERO ~ */
+
+.hero{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    
+    &__izq{
+        /* --- CAMBIOS PARA EL FONDO ANIMADO Y LA CARD --- */
+        background-color: $uvaBlue; /* Fondo oscuro para el efecto Matrix */
+        
+        /* Eliminamos background-image anterior para que se vea el canvas */
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; /* CAMBIO: Centrado vertical (antes flex-end) */
+        
+        position: fixed;
+        width: 50vw;
+        height: 100%;
+        z-index: 100;
+        border-right: 5px solid #a3a7af;
+        overflow: hidden; /* NECESARIO: Para que la lluvia no se salga del contenedor */
+
+        .hero__izq {
+  position: relative;
+  overflow: hidden; // Evita que el video se salga de los bordes
+  
+  // Asegúrate de que el contenedor de la tarjeta esté por encima del video
+  &-container {
+    position: relative;
+    z-index: 2; 
+  }
+
+  // Estilos del video de fondo
+  &-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; // Hace que el video cubra todo el espacio sin achatarse
+    z-index: 1; // Lo coloca detrás del contenido pero por encima del fondo base
+    opacity: 0.7; // Opcional: baja un poco la opacidad si quieres que la tarjeta resalte más
+  }
+}
+
+        /* Estilo para el contenedor de la Card (Frente) */
+        &-container {
+            position: relative;
+            z-index: 2; /* Asegura que la card flote sobre la lluvia */
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+    } /* ~ /HERO__IZQ ~ */
+
+    &__figure {
+        display: flex;
+        position: relative;
+        z-index: 9999;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 1.5rem;
+    }
+    &__img {
+        padding: 0px;
+        aspect-ratio: attr(width) / attr(height);
+        object-fit: cover;
+        border-radius: 50%;
+        -webkit-box-shadow: 0px 10px 13px -7px #000000, -1px -24px 4px -12px rgba(0,0,0,0); 
+        box-shadow: 0px 10px 13px -7px #000000, -1px -24px 4px -12px rgba(0,0,0,0);
+        border: 0.5rem solid $uvaOrange; 
+    }
+    
+    &__name {
+        display: block;
+        letter-spacing: 0.8px; 
+        font-size: 4.8rem;
+        margin-top: 1.2rem;
+        text-align: center;
+        font-weight: 700;
+        background: rgba(255, 255, 255, 0.6);
+        padding: 0.5rem 2rem;
+        border-left: 5px solid $uvaOrange;
+        color: $uvaBlue;
+        -webkit-box-shadow: 0px 10px 13px -7px #000000, -1px -24px 4px -12px rgba(0,0,0,0); 
+        box-shadow: 0px 10px 13px -7px #000000, -1px -24px 4px -12px rgba(0,0,0,0);
+    }
+
+    &__subtitle{
+        font-size: 2rem;
+        text-align: center;
+        font-weight: 700;
+        display: block;
+    }
+
+    &__caption{
+        font-size: 1.2rem;
+        line-height: 1.5;
+        margin-top: 1rem;
+        text-align: center;
+        font-weight: 700;
+        color: #fff;
+        letter-spacing: 0.8px
+    }
+
+    &__btn{
+            display: inline-block;
+            background: $uvaBlue;
+            padding: 0.5rem;
+            color: #fff;
+            text-decoration: none;
+            font-family: 'Lato', sans-serif;
+            border-radius: 5px;
+            font-size: 1.5rem;
+            margin-top: 5px;
+            align-self: start;
+            z-index: 888;
+    }
+
+    &__der{
+        background-color: #323b4c;
+        position: absolute;
+        right: 0px;
+        height: 100%;
+        width: 50%;
+        padding: 3.125rem 4rem;
+        overflow-y: scroll;
+        color: $uvaBlue;
+        line-height: 1.5;
+        transition: top 0.3s ease-in-out; 
+        font-size: 1.2rem;
+        &--title {
+            font-size: 4.5rem;
+        }
+        &--wrapper{
+            margin: 1rem 0rem;
+        }
+        &--container{
+            display: flex;
+            flex-direction: column;
+        }
+        &--h3 {
+            font-size: 2.2rem;
+            margin-top: 1.2rem;
+        }
+        
+       
+    }
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+}
+
+.flag{
+    aspect-ratio: attr(width) / attr(height);;
+}
+
+
+.toggle__btn {
+    font-family: "Lato","Helvetica",sans-serif;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+    border: none;
+    background: #333c4d;
+    width: 50px; /* Ancho igual a la altura para hacerlo redondo */
+    height: 50px; /* Altura igual al ancho para hacerlo redondo */
+    border-radius: 50%; /* Hace que el botón sea redondo */
+    z-index: 888;
+    padding: 1rem;
+    display: flex; /* Agregado para centrar contenido verticalmente */
+    align-items: center; /* Agregado para centrar contenido verticalmente */
+    justify-content: center; /* Agregado para centrar contenido horizontalmente */
+    -webkit-animation: pulsate-fwd 0.8s ease-in-out infinite both;
+            animation: pulsate-fwd 0.8s ease-in-out infinite both;
+    margin-top: 10px;
+}
+
+.ml{
+    margin-left: 5px;
+}
+
+.accordion {
+    position: absolute;
+    width: 90%;
+    top: 20%;
+    flex-direction: column;
+    justify-content: center;
+}
+.hero__der--container {
+  /* La animación dura exactamente 1.5 segundos */
+  animation: fadeInText 1.5s ease-in-out forwards;
+}

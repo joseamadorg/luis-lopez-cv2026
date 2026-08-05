@@ -1,0 +1,15 @@
+footer {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 15rem; 
+    button {
+        text-decoration: none;
+        color: #fff;
+        font-size: 1rem;
+        border: none;
+        background: #a3a7af;
+        width: 100%;
+        padding: 0.5rem 1rem;
+    }
+}

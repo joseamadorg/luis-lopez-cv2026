@@ -1,0 +1,118 @@
+/* MOBILE STYLES   */
+
+@media screen and (max-width: 992px) {
+    .hero {
+        grid-template-columns: 1fr;
+    }
+    .hero__izq {
+        top: 0px;
+        width: 100%;
+        z-index: 100;
+        border-right: none !important;
+        background-size: cover;
+        background-position-x: 70%;
+    }
+
+    .hero__figure {
+        width: 100%;
+        height: 100%;
+        justify-content: flex-end;
+        position: absolute;
+        top: -100px;
+    }
+
+    .hero__name {
+        font-size: 2rem !important;
+        position: absolute;
+        top: 100px;
+    }
+
+    .hero__subtitle {
+        font-size: 1rem;
+    }
+
+    .hero__caption {
+        font-size: 1rem; 
+        letter-spacing: 0px;
+    }
+
+    .quote {
+        padding: 1rem;
+        font-size: 0.8rem;
+    }
+
+    .hero__der {
+        position: relative;
+        top: 100vh;
+        height: 100%;
+        width: 100%;
+        padding: 1.5rem 1rem;
+        z-index: 101;
+        overflow: scroll;
+    }
+
+    .hero__der--mobile {
+        top: 0vh;
+      }
+      
+
+    .hero__der--title {
+        font-size:2rem;
+    }
+
+    
+
+}
+
+@media screen and (max-width: 1024px) {
+    .hero__izq {
+        top: 0px;
+        z-index: 100;
+        border-right: none !important;
+        background-size: cover;
+    }
+
+    .hero__name{
+        font-size: 3rem;
+    }
+
+    .quote{
+        position: relative;
+    }
+
+    footer{
+        top: 2rem !important;
+    }
+}
+
+@media screen and (min-width: 993px) {
+    
+    footer, .toggle__btn {
+        display: none;
+    }
+    
+}
+
+@media (max-width: 768px) {
+    
+    .pixel-card__info-box{
+        margin-bottom: 0px !important;
+    }
+
+    .pixel-card__name {
+    font-size: 3.2rem;
+    }
+
+    .pixel-card {
+    padding: 10px;
+    max-width: 280px;
+    }
+    .pixel-card__main-img {
+    width: 70%; 
+    }
+
+
+    .par{
+        font-size: 1.6rem;
+    }
+}
